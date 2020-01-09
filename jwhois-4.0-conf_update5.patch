@@ -1,0 +1,11 @@
+diff -up jwhois-4.0/example/jwhois.conf.orig jwhois-4.0/example/jwhois.conf
+--- jwhois-4.0/example/jwhois.conf.orig	2011-06-23 12:05:42.000000000 +0200
++++ jwhois-4.0/example/jwhois.conf	2011-06-23 12:05:56.000000000 +0200
+@@ -349,6 +349,7 @@ whois-servers {
+ 	"\\.vu$" = "www.vunic.vu";
+ 	"\\.wf$" = "whois.nic.wf";
+ 	"\\.ws$" = "whois.worldsite.ws";
++	"\\.xn--mgbaam7a8h$" = "whois.aeda.net.ae";
+ 	"\\.yt$" = "whois.nic.yt";
+ 	"\\.yu$" = "www.nic.yu";
+ 	"\\.ac\\.za$" = "whois.ac.za";

@@ -1,6 +1,6 @@
 Name: jwhois
 Version: 4.0
-Release: 18%{?dist}
+Release: 19%{?dist}
 URL: http://www.gnu.org/software/jwhois/
 Source0: ftp://ftp.gnu.org/gnu/jwhois/jwhois-%{version}.tar.gz
 Patch0: jwhois-4.0-connect.patch
@@ -14,6 +14,8 @@ Patch7: jwhois-4.0-conf_update2.patch
 Patch8: jwhois-4.0-dotster.patch
 Patch9: jwhois-4.0-conf_update3.patch
 Patch10: jwhois-4.0-conf_update4.patch
+Patch11: jwhois-4.0-idna.patch
+Patch12: jwhois-4.0-conf_update5.patch
 License: GPLv3
 Group: Applications/Internet
 Summary: Internet whois/nicname client
@@ -38,6 +40,8 @@ A whois client that accepts both traditional and finger-style queries.
 %patch8 -p1 -b .dotster
 %patch9 -p1 -b .conf_update3
 %patch10 -p1 -b .conf_update4
+%patch11 -p1 -b .idna
+%patch12 -p1 -b .conf_update5
 
 iconv -f iso-8859-1 -t utf-8 < doc/sv/jwhois.1 > doc/sv/jwhois.1_
 mv doc/sv/jwhois.1_ doc/sv/jwhois.1
@@ -81,6 +85,12 @@ fi
 rm -fr $RPM_BUILD_ROOT
 
 %changelog
+* Thu Jun 23 2011 Vitezslav Crhonek <vcrhonek@redhat.com> - 4.0-19
+- Fix IDN encoding failed with error code 5
+  Resolves: #682832
+- Update jwhois.conf for dotEmarat extension
+  Resolves: #664449
+
 * Thu Sep  3 2009 Vitezslav Crhonek <vcrhonek@redhat.com> - 4.0-18
 - Fix errors installing jwhois with --excludedocs
   Resolves: #515940
